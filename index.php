@@ -550,32 +550,60 @@
         // echo $bmx->getInfo();
 
 
-        //Clases abstractas
-        abstract class Animal
+        //---------Clases abstractas----------
+        // abstract class Animal
+        // {
+        //     abstract public function hacerSonido();
+        // }
+        // class Capibara extends Animal
+        // {
+        //     public function __construct()
+        //     {
+        //     }
+        //     public function hacerSonido()
+        //     {
+        //         echo "Glu, glu, glu.";
+        //     }
+        // }
+        // class Camello extends Animal
+        // {
+        //     public function __construct()
+        //     {
+        //     }
+        //     public function hacerSonido()
+        //     {
+        //         echo "every go to the disco.";
+        //     }
+        // }
+        // $chompiras = new Capibara();
+        // $tripaSeca = new Camello();
+        // $chompiras->hacerSonido();
+        // $tripaSeca->hacerSonido();
+
+
+        //---------Interfaces PHP----------
+        interface Figura
         {
-            abstract public function hacerSonido();
+            public function calcularArea();
         }
-        class Capibara extends Animal
+        interface Figura3D extends Figura
         {
-            public function __construct()
-            {
-            }
-            public function hacerSonido()
-            {
-                echo "Glu, glu, glu.";
-            }
+            public function calcularVolumen();
         }
-        class Camello extends Animal
+        class Cubo implements Figura3D
         {
-            public function __construct()
+            public function __construct(private int $lado)
             {
             }
-            public function hacerSonido()
+            public function calcularArea()
             {
-                echo "every go to the disco.";
+                return 6 * pow($this->lado, 2);
+            }
+            public function calcularVolumen()
+            {
+                return pow($this->lado, 3);
             }
         }
-        $chompiras = new Capibara();
-        $tripaSeca = new Camello();
-        $chompiras->hacerSonido();
-        $tripaSeca->hacerSonido();
+        $cubo = new Cubo(3);
+        echo $cubo->calcularArea();
+        echo $cubo->calcularVolumen();
