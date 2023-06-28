@@ -441,33 +441,71 @@
 
 
         //-----------Punto 14 Json_encode y json_decode-----------
-        $producto = [
-            [
-                'nombre' => 'Terreneitor',
-                'precio' => 10000,
-                'disponible' => true
-            ],
-            [
-                'nombre' => 'Heladeria Kreisel Supra',
-                'precio' => 5000,
-                'disponible' => true
-            ],
-            [
-                'nombre' => 'Max 3 turbo',
-                'precio' => 2000,
-                'disponible' => false
-            ]
-        ];
+        // $producto = [
+        //     [
+        //         'nombre' => 'Terreneitor',
+        //         'precio' => 10000,
+        //         'disponible' => true
+        //     ],
+        //     [
+        //         'nombre' => 'Heladeria Kreisel Supra',
+        //         'precio' => 5000,
+        //         'disponible' => true
+        //     ],
+        //     [
+        //         'nombre' => 'Max 3 turbo',
+        //         'precio' => 2000,
+        //         'disponible' => false
+        //     ]
+        // ];
 
-        //json decode
-        $json = '{"nombre":"Pablo","edad":16,"ciudad":"Tangamandapio"}';
-        $data = json_decode($json);
-        var_dump($data);
-        //json encode
-        var_dump($producto);
-        $json = json_encode($producto, JSON_UNESCAPED_UNICODE);
-        var_dump($json);
-        //json decode a objeto o array asociativo
-        $json = '{"nombre":"Pablo","edad":16,"ciudad":"Tangamandapio"}';
-        $data = json_decode($json); //devuelve un objeto
-        $data = json_decode($json, true); //devuelve un array asosiativo
+        // //json decode
+        // $json = '{"nombre":"Pablo","edad":16,"ciudad":"Tangamandapio"}';
+        // $data = json_decode($json);
+        // var_dump($data);
+        // //json encode
+        // var_dump($producto);
+        // $json = json_encode($producto, JSON_UNESCAPED_UNICODE);
+        // var_dump($json);
+        // //json decode a objeto o array asociativo
+        // $json = '{"nombre":"Pablo","edad":16,"ciudad":"Tangamandapio"}';
+        // $data = json_decode($json); //devuelve un objeto
+        // $data = json_decode($json, true); //devuelve un array asosiativo
+
+        //PHP INTERMEDIO
+        //POO -> CLASS
+        class Cocodrile
+        {
+            private $nombre;
+            protected $edad;
+
+            public function __construct($nombre, $edad)
+            {
+                $this->nombre = $nombre;
+                $this->edad = $edad;
+            }
+            public function getNombre()
+            {
+                return $this->nombre;
+            }
+            public function setNombre($nombre)
+            {
+                $this->nombre = $nombre;
+            }
+            public function getEdad()
+            {
+                return $this->edad;
+            }
+            public function setEdad($edad)
+            {
+                $this->edad = $edad;
+            }
+            public function saludar()
+            {
+                echo "Hola, mi nombre es " . $this->nombre . " y mi edad es: " . $this->edad;
+            }
+        }
+        $alumno = new Cocodrile("Chancho", 25);
+        $alumno->getNombre(); //Se omite con el constructor
+        $alumno->getEdad(); //Se omite con el constructor
+        $alumno->saludar();
