@@ -651,10 +651,22 @@
 
 
         //-----------Autoload-----------
-        function my_autoload($clase)
+        // function my_autoload($clase)
+        // {
+        //     require __DIR__ . '/clases/' . $clase . '.php';
+        // }
+        // spl_autoload_register('my_autoload');
+        // $detalles = new Detalles();
+        // $clientes = new Clientes();
+
+
+        //----------Punto 20 Namespaces--------------
+        namespace App;
+
+        class Detalles
         {
-            require __DIR__ . '/clases/' . $clase . '.php';
+            public function __construct()
+            {
+                echo "Desde la clase de Detalles.php";
+            }
         }
-        spl_autoload_register('my_autoload');
-        $detalles = new Detalles();
-        $clientes = new Clientes();
